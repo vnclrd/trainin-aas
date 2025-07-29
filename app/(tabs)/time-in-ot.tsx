@@ -1,7 +1,10 @@
-import { View, Text } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
+import { useRouter } from 'expo-router'
 
 export default function TimeInOnTime() {
+  const router = useRouter()
+
   return (
     <LinearGradient
       colors={[ '#d9d9d9', '#737373' ]}
@@ -10,12 +13,10 @@ export default function TimeInOnTime() {
       className='flex-1'    
     >
       <View className='flex-1 items-center justify-center'>
-
         <View className='flex-row font-opensans color-[#1e1e1e] mb-2'>
           <Text className='text-5xl' style={{ lineHeight: 70 }}>Hello,</Text>
           <Text className='font-opensans-bold text-5xl' style={{ lineHeight: 70 }}> Miguel.</Text>
         </View>
-
         <Text>Your time in is:</Text>
         <Text
           className='font-opensans-bolditalic text-[70px] color-[#fff]'
@@ -27,13 +28,13 @@ export default function TimeInOnTime() {
         >
           7:45 AM
         </Text>
-
-        <Text className='absolute font-opensans text-xl bottom-20'>Tap to continue</Text>
-        
+        <Pressable
+          onPress={() => router.push('/')}
+          className='absolute bottom-20'
+        >
+          <Text className='font-opensans text-xl'>Tap to continue</Text>
+        </Pressable>
       </View>
-
-
-      
     </LinearGradient>
   )
 }
