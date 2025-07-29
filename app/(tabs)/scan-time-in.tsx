@@ -1,9 +1,8 @@
-import { Text, View, Pressable } from "react-native";
+import { Text, View, Image, Pressable } from "react-native";
 import { useRouter } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
-import RootLayout from "../_layout";
 
-export default function scanTimeIn() {
+export default function ScanTimeIn() {
   const router = useRouter();
 
   return (
@@ -11,10 +10,16 @@ export default function scanTimeIn() {
       colors={["#d9d9d9", "#737373"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 1 }}
-      style={{ flex: 1 }}
+      className="flex-1"
     >
-      <View className="items-center py-72">
-
+      <View className="flex-1 justify-center items-center py-72">
+        <Image
+          source={require("../../assets/images/nfc-wayfinding-mark.png")}
+          className="w-[250px] h-[200px]"
+          resizeMode="contain"
+        />
+        {/* Translate marginTop to Tailwind's mt-{value} class */}
+        <Text className="mt-[30px] text-[30px] color-[#1e1e1e]">Scan to Time In.</Text>
       </View>
     </LinearGradient>
   );
