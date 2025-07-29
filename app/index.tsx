@@ -1,4 +1,4 @@
-import { View, Text, Pressable } from 'react-native'
+import { Text, Pressable } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useRouter } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context';
