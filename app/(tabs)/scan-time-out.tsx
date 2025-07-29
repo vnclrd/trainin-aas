@@ -1,5 +1,5 @@
-import { View, Text, Image } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { View, Text, Image } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function ScanTimeOut() {
   return (
