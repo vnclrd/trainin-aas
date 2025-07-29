@@ -13,7 +13,7 @@ export default function ScanTimeIn() {
 			end={{ x: 0, y: 1 }}
 			className='flex-1'
 		>
-			<View className='flex-1 justify-center items-center'>
+			<View className='items-center py-72'>
         <Image
           source={require('../../assets/images/nfc-wayfinding-mark.png')}
           className='w-[250px] h-[200px]'
