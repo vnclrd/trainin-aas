@@ -21,11 +21,6 @@ export default function TimeInOnTime() {
         <Text>Your time in is:</Text>
         <Text
           className='font-opensans-bolditalic text-[70px] color-[#fff]'
-          style={{
-            textShadowColor: '#000',
-            textShadowOffset: { width: 0, height: 0 },
-            textShadowRadius: 5,
-          }}
         >
           7:45 AM
         </Text>
