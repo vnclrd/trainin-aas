@@ -1,6 +1,6 @@
-import { View, Text, Pressable } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import { useRouter } from "expo-router";
+import { View, Text, Pressable } from "react-native"
+import { LinearGradient } from "expo-linear-gradient"
+import { useRouter } from "expo-router"
 
 export default function Index() {
   const router = useRouter();

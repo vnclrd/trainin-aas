@@ -1,6 +1,6 @@
-import { View, Text, Image, Pressable } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useRouter } from 'expo-router';
+import { View, Text, Image, Pressable } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
+import { useRouter } from 'expo-router'
 
 export default function ScantTimeIn() {
   const router = useRouter()
@@ -19,13 +19,13 @@ export default function ScantTimeIn() {
         className='w-[250px] h-[200px]'
         resizeMode="contain"
       />
-				<Text className='text-[30px] color-[#1e1e1e] mt-[30px]'>Tap Card to Time In.</Text>
+				<Text className='font-opensans text-[30px] color-[#1e1e1e] mt-[30px]'>Tap Card to Time In.</Text>
         
         <Pressable
         onPress={() => router.push('/(tabs)/time-in-ot')}
         className='mt-[30px] border border-[#1e1e1e] rounded-[50px] items-center justify-center w-[150px] h-[50px]'
         >
-          <Text className='text-[20px]'>Test Button</Text>
+          <Text className='font-opensans text-[20px]'>Test Button</Text>
         </Pressable>
 			</View>
 		</LinearGradient>
