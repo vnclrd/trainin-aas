@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
-import { useFonts, OpenSans_400Regular, OpenSans_700Bold } from '@expo-google-fonts/open-sans';
 import { Text } from 'react-native';
+import { useFonts, OpenSans_400Regular, OpenSans_700Bold } from '@expo-google-fonts/open-sans';
 import './globals.css'
 
 export default function RootLayout() {
@@ -10,15 +10,10 @@ export default function RootLayout() {
   });
 
   if (!fontsLoaded) {
-    return <Text>Loading...</Text>; // or a splash screen
+    return <Text>Loading...</Text>;
   }
 
   return (
-    <Stack>
-      <Stack.Screen 
-        name="index"
-        options={{ headerShown: false }}
-      />
-    </Stack>
+    <Stack screenOptions={{ headerShown: false }}></Stack>
   );
 }
