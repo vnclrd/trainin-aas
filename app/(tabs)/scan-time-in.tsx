@@ -1,11 +1,11 @@
-import { View, Image, Pressable, Animated } from "react-native";
+import { View, Image, Animated } from "react-native";
 import { useRouter } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useEffect, useRef } from "react";
 
 export default function ScanTimeIn() {
   const router = useRouter();
-  const fadeAnim = useRef(new Animated.Value(1)).current; // Start with opacity 0
+  const fadeAnim = useRef(new Animated.Value(1)).current;
 
   useEffect(() => {
     // Fade in and out continuously
@@ -43,7 +43,6 @@ export default function ScanTimeIn() {
           className="w-[250px] h-[200px]"
           resizeMode="contain"
         />
-
         <Animated.Text
           style={{
             marginTop: 30,

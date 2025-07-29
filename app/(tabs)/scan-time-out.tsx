@@ -1,9 +1,34 @@
-import { Text, View, Image, Pressable } from "react-native";
+import { Text, View, Image, Animated } from "react-native";
 import { useRouter } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
+import React, { useEffect, useRef } from "react";
 
 export default function ScanTimeIn() {
   const router = useRouter();
+  const fadeAnim = useRef(new Animated.Value(1)).current;
+  
+  useEffect(() => {
+    // Fade in and out continuously
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+        Animated.timing(fadeAnim, {
+          toValue: 0.25,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+      ])
+    ).start();
+  }, [fadeAnim]);
 
   return (
     <LinearGradient
@@ -18,8 +43,16 @@ export default function ScanTimeIn() {
           className="w-[250px] h-[200px]"
           resizeMode="contain"
         />
-        {/* Translate marginTop to Tailwind's mt-{value} class */}
-        <Text className="mt-[30px] text-[30px] color-[#1e1e1e]">Scan to Time Out.</Text>
+        <Animated.Text
+          style={{
+            marginTop: 30,
+            fontSize: 30,
+            color: "#1e1e1e",
+            opacity: fadeAnim, // Bind opacity to animation
+          }}
+        >
+          Scan to Time Out.
+        </Animated.Text>
       </View>
     </LinearGradient>
   );
