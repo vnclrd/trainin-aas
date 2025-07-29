@@ -1,20 +1,21 @@
 import { View, Text, Pressable } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useRouter } from 'expo-router'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function TimeInOnTime() {
   const router = useRouter()
 
   return (
     <LinearGradient
-      colors={[ '#d9d9d9', '#737373' ]}
+      colors={["#d9d9d9", "#737373"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 1 }}
-      className='flex-1'    
+      style={{ flex: 1 }}
     >
-      <View className='flex-1 items-center justify-center'>
-        <View className='flex-row font-opensans color-[#1e1e1e] mb-2'>
-          <Text className='text-5xl' style={{ lineHeight: 70 }}>Hello,</Text>
+      <SafeAreaView className='flex-1 justify-center items-center'>
+        <View className='flex-row'>
+          <Text className='font-opensans text-5xl' style={{ lineHeight: 70 }}>Hello,</Text>
           <Text className='font-opensans-bold text-5xl' style={{ lineHeight: 70 }}> Miguel.</Text>
         </View>
         <Text>Your time in is:</Text>
@@ -34,7 +35,7 @@ export default function TimeInOnTime() {
         >
           <Text className='font-opensans text-xl'>Tap to continue</Text>
         </Pressable>
-      </View>
+      </SafeAreaView>
     </LinearGradient>
   )
 }

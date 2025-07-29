@@ -1,6 +1,7 @@
 import { View, Text, Image, Pressable } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useRouter } from 'expo-router'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function ScanTimeIn() {
   const router = useRouter()
@@ -11,9 +12,9 @@ export default function ScanTimeIn() {
 			colors={[ '#d9d9d9', '#737373' ]}
 			start={{ x: 0, y: 0 }}
 			end={{ x: 0, y: 1 }}
-			className='flex-1'
+			style={{ flex: 1 }}
 		>
-			<View className='items-center py-72'>
+			<SafeAreaView className='flex-1 justify-center items-center'>
         <Image
           source={require('../../assets/images/nfc-wayfinding-mark.png')}
           className='w-[250px] h-[200px]'
@@ -26,7 +27,7 @@ export default function ScanTimeIn() {
         >
           <Text className='font-opensans text-[20px]'>Test Button</Text>
         </Pressable>
-			</View>
+			</SafeAreaView>
 		</LinearGradient>
 	)
 }
