@@ -14,7 +14,7 @@ export default function Index() {
     >
       <View className="items-center py-72">
         {/* Title */}
-        <Text className="text-5xl text-[#1e1e1e] pb-2">
+        <Text className="text-6xl text-[#1e1e1e] pb-2">
           <Text className="font-opensans">Train</Text>
           <Text className="font-opensans-bold">In</Text>
         </Text>
@@ -27,14 +27,11 @@ export default function Index() {
         {/* Time In Button */}
         <Pressable
           onPress={() => router.push("/(tabs)/scan-time-in")}
-          className="border border-[#1e1e1e] rounded-[25px] items-center justify-center m-5 mt-96"
-          style={{
-            width: 150,
-            height: 50,
-            backgroundColor: "transparent",
-          }}
+          className="border border-[#1e1e1e] rounded-[50px]
+          items-center justify-center m-5 mt-80
+          w-[175px] h-[60px]"
         >
-          <Text className="font-opensans text-[#1e1e1e] text-xl">
+          <Text className="font-opensans text-[#1e1e1e] text-2xl">
             Time In
           </Text>
         </Pressable>
@@ -42,14 +39,11 @@ export default function Index() {
         {/* Time Out Button */}
         <Pressable
           onPress={() => router.push("/(tabs)/scan-time-out")}
-          className="border border-[#1e1e1e] rounded-[25px] items-center justify-center"
-          style={{
-            width: 150,
-            height: 50,
-            backgroundColor: "transparent",
-          }}
+          className="border border-[#1e1e1e] rounded-[50px]
+          items-center justify-center
+          w-[175px] h-[60px]"
         >
-          <Text className="font-opensans text-[#1e1e1e] text-xl">
+          <Text className="font-opensans text-[#1e1e1e] text-2xl">
             Time Out
           </Text>
         </Pressable>
