@@ -11,15 +11,15 @@ export default function ScanTimeOut() {
       colors={[ '#d9d9d9', '#737373' ]}
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 1 }}
-      className="flex-1"
+      className='flex-1'
     >
-      <View className="flex-1 justify-center items-center">
+      <View className='flex-1 justify-center items-center'>
         <Image
           source={require('../../assets/images/nfc-wayfinding-mark.png')}
-          className="w-[250px] h-[200px]"
-          resizeMode="contain"
+          className='w-[250px] h-[200px]'
+          resizeMode='contain'
         />
-        <Text className="font-opensans text-[30px] color-[#1e1e1e] mt-[30px]">Tap Card to Time In.</Text>
+        <Text className='font-opensans text-[30px] color-[#1e1e1e] mt-[30px]'>Tap Card to Time In.</Text>
         <Pressable
         onPress={() => router.push('/(tabs)/time-out')}
         className='mt-[30px] border border-[#1e1e1e] rounded-[50px] items-center justify-center w-[150px] h-[50px]'
