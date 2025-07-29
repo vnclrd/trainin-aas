@@ -9,6 +9,7 @@ module.exports = {
         // key: ['FontName', 'fallback']
         opensans: ['OpenSans'],
         'opensans-bold': ['OpenSansBold'],
+        'opensans-bolditalic': ['OpenSansBoldItalic']
       }
     },
   },
