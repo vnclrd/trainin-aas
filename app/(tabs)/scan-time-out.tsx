@@ -1,8 +1,12 @@
-import { View, Text, Image } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { View, Text, Image, Pressable } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
 
 export default function ScanTimeOut() {
+  const router = useRouter()
+
   return (
+    /* Gradient Background */
     <LinearGradient
     colors={[ '#d9d9d9', '#737373' ]}
     start={{ x: 0, y: 0 }}
@@ -16,6 +20,12 @@ export default function ScanTimeOut() {
           resizeMode="contain"
         />
         <Text className="text-[30px] color-[#1e1e1e] mt-[30px]">Tap Card to Time In.</Text>
+        <Pressable
+        onPress={() => router.push('/(tabs)/time-out')}
+        className='mt-[30px] border border-[#1e1e1e] rounded-[50px] items-center justify-center w-[150px] h-[50px]'
+        >
+          <Text>Test Button</Text>
+        </Pressable>
       </View>
     </LinearGradient>
   )

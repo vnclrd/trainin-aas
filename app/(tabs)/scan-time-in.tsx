@@ -6,6 +6,7 @@ export default function ScantTimeIn() {
   const router = useRouter()
 
 	return (
+    /* Gradient Background */
 		<LinearGradient
 			colors={[ '#d9d9d9', '#737373' ]}
 			start={{ x: 0, y: 0 }}

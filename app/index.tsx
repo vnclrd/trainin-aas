@@ -1,11 +1,12 @@
-import { Text, View, Pressable } from "react-native";
-import { useRouter } from "expo-router";
+import { View, Text, Pressable } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 
 export default function Index() {
   const router = useRouter();
 
   return (
+    /* Gradiend Background */
     <LinearGradient
       colors={["#d9d9d9", "#737373"]}
       start={{ x: 0, y: 0 }}
