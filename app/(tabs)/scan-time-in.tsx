@@ -21,7 +21,7 @@ export default function ScanTimeIn() {
     /* Gradient Background */
 		<LinearGradient colors={[ '#d9d9d9', '#737373' ]} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={{ flex: 1 }}>
 			<SafeAreaView className='flex-1 justify-center items-center'>
-        <Pressable onPress={() => router.push('/(tabs)/time-in-ot')}>
+        <Pressable onPress={() => router.push('/(tabs)/time-in')}>
           <Image
             source={require('../../assets/images/nfc-wayfinding-mark.png')}
             className='w-[250px] h-[200px]'
