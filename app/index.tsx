@@ -5,19 +5,19 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { useRef, useEffect, useState } from 'react'
 
 export default function Index() {
-  // Declare constant translateY
-  const translateY = useRef(new Animated.Value(-200)).current // New Animated.Value() is the current position of the object
-  const opacity = useRef(new Animated.Value(0)).current
+  const translateY = useRef(new Animated.Value(-200)).current // Animated.Value() is the current position of elements
+  const opacity = useRef(new Animated.Value(0)).current // Animated.Value() is the starting opacity of elements
   const router = useRouter()
 
-  // Animation for the Title
+  // Animation for the Title to change positions
   useEffect(() => {
     Animated.sequence([ // Add a sequence to the animation
-      Animated.delay(1000),
+      Animated.delay(1000), // Delay the position change for 1 second
       Animated.timing(translateY, { toValue: -400, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
     ]).start()
   }, [])
 
+  // Animation for the buttons to fade in after 1 second
   useEffect(() => {
     Animated.sequence([
       Animated.delay(1000),
@@ -33,7 +33,11 @@ export default function Index() {
       end={{ x: 0, y: 1 }}
       style={{ flex: 1 }}
     >
+
+      {/* Container for all elements */}
       <SafeAreaView className='flex-1 items-center justify-center'>
+
+        {/* Animated.View houses all animated elements  */}
         <Animated.View style={{ transform: [{ translateY }], alignItems: 'center' }}>
           {/* Title */}
           <Text className='text-6xl text-[#1e1e1e] pb-2 top-60'>
@@ -48,7 +52,6 @@ export default function Index() {
         </Animated.View>
         
         <Animated.View style={{ opacity, alignItems: 'center', position: 'absolute', bottom: 0 }}>
-
           {/* Time In Button */}
           <Pressable
             onPress={() => router.push('/(tabs)/scan-time-in')}
@@ -72,10 +75,11 @@ export default function Index() {
               Time Out
             </Text>
           </Pressable>
-
+          
         </Animated.View>
 
       </SafeAreaView>
+
     </LinearGradient>
   );
 }
