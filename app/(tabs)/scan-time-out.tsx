@@ -30,7 +30,7 @@ export default function ScanTimeOut() {
           />
         </Pressable>
         <Animated.Text style={{ opacity: fadeAnim, color: '#1e1e1e', fontSize: 30, marginTop: 30 }}>
-          <Text className='font-opensans'>Tap card to time out.</Text>
+          <Text className='font-opensans'>Tap card to time out</Text>
         </Animated.Text>
       </SafeAreaView>
     </LinearGradient>
