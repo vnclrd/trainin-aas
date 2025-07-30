@@ -30,7 +30,7 @@ export default function ScanTimeIn() {
           />
         </Pressable>
         <Animated.Text style={{ opacity: fadeAnim, color: '#1e1e1e', fontSize: 30, marginTop: 30 }}>
-          <Text className='font-opensans'>Tap card to time in.</Text>
+          <Text className='font-opensans'>Tap card to time in</Text>
         </Animated.Text>
 			</SafeAreaView>
 		</LinearGradient>
