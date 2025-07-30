@@ -13,7 +13,7 @@ export default function ScanTimeIn() {
       Animated.sequence([
         Animated.timing(fadeAnim, { toValue: 1, duration: 500, useNativeDriver: true }),
         Animated.timing(fadeAnim, { toValue: 0.25, duration: 1000, useNativeDriver: true }),
-        Animated.timing(fadeAnim, { toValue: 1, duration: 500, useNativeDriver: true }),
+        Animated.timing(fadeAnim, { toValue: 1, duration: 500, useNativeDriver: true })
       ])
     ).start()
   }, [fadeAnim])
@@ -24,9 +24,9 @@ export default function ScanTimeIn() {
 			<SafeAreaView className='flex-1 justify-center items-center'>
         <Pressable onPress={() => router.push('/(tabs)/time-in-ot')}>
           <Image
-          source={require('../../assets/images/nfc-wayfinding-mark.png')}
-          className='w-[250px] h-[200px]'
-          resizeMode="contain"
+            source={require('../../assets/images/nfc-wayfinding-mark.png')}
+            className='w-[250px] h-[200px]'
+            resizeMode="contain"
           />
         </Pressable>
         <Animated.Text style={{ opacity: fadeAnim, color: '#1e1e1e', fontSize: 30, marginTop: 30 }}>
