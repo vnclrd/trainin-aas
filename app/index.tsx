@@ -21,7 +21,7 @@ export default function Index() {
   useEffect(() => {
     Animated.sequence([
       Animated.delay(1000),
-      Animated.timing(opacity, { toValue: 1, duration: 1000, useNativeDriver: true,}),
+      Animated.timing(opacity, { toValue: 1, duration: 1000, useNativeDriver: true }),
     ]).start();
   }, []);
 
