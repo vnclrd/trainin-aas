@@ -5,7 +5,8 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { useRef, useEffect, useState } from 'react'
 
 export default function Index() {
-  const translateY = useRef(new Animated.Value(-200)).current // Animated.Value() is the current position of elements
+  const titleTranslateY = useRef(new Animated.Value(-200)).current // Animated.Value() is the current position of elements
+  const subtitleTranslateY = useRef(new Animated.Value(-200)).current
   const opacity = useRef(new Animated.Value(0)).current // Animated.Value() is the starting opacity of elements
   const router = useRouter()
 
@@ -13,7 +14,14 @@ export default function Index() {
   useEffect(() => {
     Animated.sequence([ // Add a sequence to the animation
       Animated.delay(1000), // Delay the position change for 1 second
-      Animated.timing(translateY, { toValue: -400, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
+      Animated.timing(titleTranslateY, { toValue: -400, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
+    ]).start()
+  }, [])
+
+  useEffect(() => {
+    Animated.sequence([ // Add a sequence to the animation
+      Animated.delay(1000), // Delay the position change for 1 second
+      Animated.timing(subtitleTranslateY, { toValue: -360, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
     ]).start()
   }, [])
 
@@ -38,18 +46,25 @@ export default function Index() {
       <SafeAreaView className='flex-1 items-center justify-center'>
 
         {/* Animated.View houses all animated elements  */}
-        <Animated.View style={{ transform: [{ translateY }], alignItems: 'center' }}>
+        <Animated.View style={{ transform: [{ translateY: titleTranslateY }], alignItems: 'center' }}>
           {/* Title */}
-          <Text className='text-6xl text-[#1e1e1e] pb-2 top-60'>
+          <Text className='text-6xl text-[#1e1e1e] top-60'>
             <Text className='font-opensans'>Train</Text>
             <Text className='font-opensans-bold'>In</Text>
           </Text>
 
-          {/* Subtitle */}
-          <Text className='font-opensans text-xl top-60'>
-            Automated Attendance System
-          </Text>
+          
+
         </Animated.View>
+
+        <Animated.View style={{ transform: [{ translateY: subtitleTranslateY }], alignItems: 'center', position: 'absolute' }}>
+            {/* Subtitle */}
+            <Text className='font-opensans text-xl top-60'>
+              Automated Attendance System
+            </Text>
+          </Animated.View>
+
+        
         
         <Animated.View style={{ opacity, alignItems: 'center', position: 'absolute', bottom: 0 }}>
           {/* Time In Button */}
