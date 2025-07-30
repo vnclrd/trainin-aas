@@ -21,28 +21,28 @@ export default function TimeInOnTime() {
 
   useEffect(() => {
     Animated.sequence([
-      Animated.delay(750),
+      Animated.delay(500),
       Animated.timing(opacity1, { toValue: 1, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
     ]).start()
   }, [])
 
   useEffect(() => {
     Animated.sequence([
-      Animated.delay(2000),
+      Animated.delay(1500),
       Animated.timing(opacity2, { toValue: 1, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
     ]).start()
   }, [])
 
   useEffect(() => {
     Animated.sequence([
-      Animated.delay(3000),
+      Animated.delay(2250),
       Animated.timing(opacity3, { toValue: 1, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
     ]).start()
   }, [])
 
   useEffect(() => {
     Animated.sequence([
-      Animated.delay(3000),
+      Animated.delay(2250),
       Animated.loop(
         Animated.sequence([
           Animated.timing(opacityFadeAnim, { toValue: 1, duration: 1000, useNativeDriver: true }),
