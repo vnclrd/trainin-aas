@@ -6,7 +6,7 @@ import { useRef, useEffect } from 'react'
 
 export default function ScanTimeOut() {
   const router = useRouter()
-  const fadeAnim = useRef(new Animated.Value(1)).current
+  const fadeAnim = useRef(new Animated.Value(0)).current
 
   useEffect(() => {
     Animated.loop(
