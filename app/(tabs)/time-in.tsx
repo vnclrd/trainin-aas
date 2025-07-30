@@ -53,12 +53,14 @@ export default function TimeInOnTime() {
   }, [opacityFadeAnim])
 
   return (
+
     <LinearGradient
       colors={["#d9d9d9", "#737373"]}
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 1 }}
       style={{ flex: 1 }}
     >
+
       <SafeAreaView className='flex-1 items-center justify-center'>
 
         <View className='flex-row'>
@@ -78,12 +80,9 @@ export default function TimeInOnTime() {
         
         <Animated.View style={{ opacity: opacityFadeAnim, alignItems: 'center', position: 'absolute', bottom: 80 }}>
           <Pressable onPress={() => router.push('/')}>
-          <Text className='font-opensans text-xl'>Tap to continue</Text>
-        </Pressable>
+            <Text className='font-opensans text-xl'>Tap to continue</Text>
+          </Pressable>
         </Animated.View>
-        
-          
-        
         
       </SafeAreaView>
     </LinearGradient>
