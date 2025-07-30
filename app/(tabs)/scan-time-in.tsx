@@ -27,20 +27,17 @@ export default function ScanTimeIn() {
 			style={{ flex: 1 }}
 		>
 			<SafeAreaView className='flex-1 justify-center items-center'>
-        <Image
+
+        <Pressable onPress={() => router.push('/(tabs)/time-in-ot')}>
+          <Image
           source={require('../../assets/images/nfc-wayfinding-mark.png')}
           className='w-[250px] h-[200px]'
           resizeMode="contain"
-        />
+          />
+        </Pressable>
         <Animated.Text style={{ opacity: fadeAnim, color: '#1e1e1e', fontSize: 30, marginTop: 30 }}>
           <Text className='font-opensans'>Tap Card to Time In.</Text>
         </Animated.Text>
-        <Pressable
-        onPress={() => router.push('/(tabs)/time-in-ot')}
-        className='mt-[30px] border border-[#1e1e1e] rounded-[50px] items-center justify-center w-[150px] h-[50px]'
-        >
-          <Text className='font-opensans text-[20px]'>Test Button</Text>
-        </Pressable>
 			</SafeAreaView>
 		</LinearGradient>
 	)
