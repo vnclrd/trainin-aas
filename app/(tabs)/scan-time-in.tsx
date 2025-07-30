@@ -33,7 +33,7 @@ export default function ScanTimeIn() {
           resizeMode="contain"
         />
         <Animated.Text style={{ opacity: fadeAnim, color: '#1e1e1e', fontSize: 30, marginTop: 30 }}>
-          <Text className='font-opensans text-[30px] color-[#1e1e1e] mt-[30px]'>Tap Card to Time In.</Text>
+          <Text className='font-opensans'>Tap Card to Time In.</Text>
         </Animated.Text>
         <Pressable
         onPress={() => router.push('/(tabs)/time-in-ot')}
