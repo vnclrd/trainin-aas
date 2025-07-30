@@ -6,7 +6,7 @@ import { useRef, useEffect, useState } from 'react'
 
 export default function Index() {
   const titleTranslateY = useRef(new Animated.Value(-200)).current // Animated.Value() is the current position of elements
-  const subtitleTranslateY = useRef(new Animated.Value(-200)).current
+  const subtitleTranslateY = useRef(new Animated.Value(-600)).current
   const opacity = useRef(new Animated.Value(0)).current // Animated.Value() is the starting opacity of elements
   const router = useRouter()
 
@@ -16,19 +16,24 @@ export default function Index() {
       Animated.delay(1000), // Delay the position change for 1 second
       Animated.timing(titleTranslateY, { toValue: -400, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
     ]).start()
+    
   }, [])
 
   useEffect(() => {
-    Animated.sequence([ // Add a sequence to the animation
-      Animated.delay(1000), // Delay the position change for 1 second
-      Animated.timing(subtitleTranslateY, { toValue: -360, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
+    Animated.sequence([
+      Animated.delay(1000),
+      Animated.timing(opacity, { toValue: 1, duration: 1000, useNativeDriver: true }),
+    ]).start
+    Animated.sequence([
+      Animated.delay(1000),
+      Animated.timing(subtitleTranslateY, { toValue: -200, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
     ]).start()
   }, [])
 
   // Animation for the buttons to fade in after 1 second
   useEffect(() => {
     Animated.sequence([
-      Animated.delay(1000),
+      Animated.delay(1500),
       Animated.timing(opacity, { toValue: 1, duration: 1000, useNativeDriver: true }),
     ]).start();
   }, []);
@@ -55,14 +60,17 @@ export default function Index() {
 
           
 
+        
         </Animated.View>
 
-        <Animated.View style={{ transform: [{ translateY: subtitleTranslateY }], alignItems: 'center', position: 'absolute' }}>
+        <Animated.View style={{ opacity, transform: [{ translateY: subtitleTranslateY }], alignItems: 'center' }}>
             {/* Subtitle */}
-            <Text className='font-opensans text-xl top-60'>
+            <Text className='font-opensans text-xl'>
               Automated Attendance System
             </Text>
           </Animated.View>
+
+        
 
         
         
