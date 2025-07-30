@@ -1,10 +1,22 @@
-import { Text, Image, Pressable } from 'react-native'
+import { Text, Image, Pressable, Animated } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useRouter } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRef, useEffect } from 'react'
 
 export default function ScanTimeIn() {
+  const fadeAnim = useRef(new Animated.Value(1)).current
   const router = useRouter()
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(fadeAnim, { toValue: 1, duration: 500, useNativeDriver: true }),
+        Animated.timing(fadeAnim, { toValue: 0.25, duration: 1000, useNativeDriver: true }),
+        Animated.timing(fadeAnim, { toValue: 1, duration: 500, useNativeDriver: true }),
+      ])
+    ).start()
+  }, [fadeAnim])
 
 	return (
     /* Gradient Background */
@@ -20,7 +32,9 @@ export default function ScanTimeIn() {
           className='w-[250px] h-[200px]'
           resizeMode="contain"
         />
-				<Text className='font-opensans text-[30px] color-[#1e1e1e] mt-[30px]'>Tap Card to Time In.</Text>
+        <Animated.Text style={{ opacity: fadeAnim, color: '#1e1e1e', fontSize: 30, marginTop: 30 }}>
+          <Text className='font-opensans text-[30px] color-[#1e1e1e] mt-[30px]'>Tap Card to Time In.</Text>
+        </Animated.Text>
         <Pressable
         onPress={() => router.push('/(tabs)/time-in-ot')}
         className='mt-[30px] border border-[#1e1e1e] rounded-[50px] items-center justify-center w-[150px] h-[50px]'
