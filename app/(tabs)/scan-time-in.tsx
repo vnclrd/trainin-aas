@@ -1,12 +1,12 @@
-import { Text, Image, Pressable, Animated } from 'react-native'
+import { Text, Image, Animated, Pressable } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useRouter } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRef, useEffect } from 'react'
 
 export default function ScanTimeIn() {
-  const fadeAnim = useRef(new Animated.Value(1)).current
   const router = useRouter()
+  const fadeAnim = useRef(new Animated.Value(1)).current
 
   useEffect(() => {
     Animated.loop(

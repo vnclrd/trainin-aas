@@ -20,27 +20,18 @@ export default function ScanTimeOut() {
 
   return (
     /* Gradient Background */
-    <LinearGradient
-      colors={[ '#d9d9d9', '#737373' ]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 0, y: 1 }}
-      style={{ flex: 1 }}
-    >
+    <LinearGradient colors={[ '#d9d9d9', '#737373' ]} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={{ flex: 1 }}>
       <SafeAreaView className='flex-1 justify-center items-center'>
-        <Image
-          source={require('../../assets/images/nfc-wayfinding-mark.png')}
-          className='w-[250px] h-[200px]'
-          resizeMode='contain'
-        />
+        <Pressable onPress={() => router.push('/(tabs)/time-out')}>
+          <Image
+            source={require('../../assets/images/nfc-wayfinding-mark.png')}
+            className='w-[250px] h-[200px]'
+            resizeMode='contain'
+          />
+        </Pressable>
         <Animated.Text style={{ opacity: fadeAnim, color: '#1e1e1e', fontSize: 30, marginTop: 30 }}>
           <Text className='font-opensans'>Tap Card to Time Out.</Text>
         </Animated.Text>
-        <Pressable
-        onPress={() => router.push('/(tabs)/time-out')}
-        className='mt-[30px] border border-[#1e1e1e] rounded-[50px] items-center justify-center w-[150px] h-[50px]'
-        >
-          <Text className='font-opensans text-[20px]'>Test Button</Text>
-        </Pressable>
       </SafeAreaView>
     </LinearGradient>
   )
