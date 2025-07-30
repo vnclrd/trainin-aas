@@ -42,7 +42,7 @@ export default function TimeInOnTime() {
 
   useEffect(() => {
     Animated.sequence([
-      Animated.delay(2250),
+      Animated.delay(3000),
       Animated.loop(
         Animated.sequence([
           Animated.timing(opacityFadeAnim, { toValue: 1, duration: 1000, useNativeDriver: true }),
