@@ -7,7 +7,9 @@ import { useRef, useEffect } from 'react'
 export default function TimeInOnTime() {
   const router = useRouter()
   const translateY = useRef(new Animated.Value(0)).current
-  const opacity = useRef(new Animated.Value(0)).current
+  const opacity1 = useRef(new Animated.Value(0)).current
+  const opacity2 = useRef(new Animated.Value(0)).current
+  const opacity3 = useRef(new Animated.Value(0)).current
   const opacityFadeAnim = useRef(new Animated.Value(0)).current
 
   useEffect(() => {
@@ -19,14 +21,28 @@ export default function TimeInOnTime() {
 
   useEffect(() => {
     Animated.sequence([
-      Animated.delay(1000),
-      Animated.timing(opacity, { toValue: 1, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
+      Animated.delay(750),
+      Animated.timing(opacity1, { toValue: 1, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
     ]).start()
   }, [])
 
   useEffect(() => {
     Animated.sequence([
-      Animated.delay(1000),
+      Animated.delay(2000),
+      Animated.timing(opacity2, { toValue: 1, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
+    ]).start()
+  }, [])
+
+  useEffect(() => {
+    Animated.sequence([
+      Animated.delay(3000),
+      Animated.timing(opacity3, { toValue: 1, duration: 1000, easing: Easing.out(Easing.exp), useNativeDriver: true })
+    ]).start()
+  }, [])
+
+  useEffect(() => {
+    Animated.sequence([
+      Animated.delay(3000),
       Animated.loop(
         Animated.sequence([
           Animated.timing(opacityFadeAnim, { toValue: 1, duration: 1000, useNativeDriver: true }),
@@ -46,16 +62,17 @@ export default function TimeInOnTime() {
       <SafeAreaView className='flex-1 items-center justify-center'>
 
         <View className='flex-row'>
-          <Animated.Text style={{ transform: [{ translateY }], alignItems: 'center' }}>
+          <Animated.Text style={{ opacity: opacity1, alignItems: 'center' }}>
             <Text className='font-opensans text-5xl' style={{ lineHeight: 70 }}>Hello,</Text>
             <Text className='font-opensans-bold text-5xl' style={{ lineHeight: 70 }}> Miguel.</Text>
           </Animated.Text>
         </View>
         
-        <Animated.Text style={{ opacity: opacity, alignItems: 'center' }}>
+        <Animated.Text style={{ opacity: opacity2 , alignItems: 'center' }}>
           <Text>Your time in is:</Text>
         </Animated.Text>
-        <Animated.Text style={{ opacity: opacity, alignItems: 'center' }}>
+
+        <Animated.Text style={{ opacity: opacity3 , alignItems: 'center' }}>
           <Text className='font-opensans-bolditalic text-[70px] color-[#fff]'>7:45 AM</Text>
         </Animated.Text>
         
