@@ -53,27 +53,19 @@ export default function Index() {
         {/* Animated.View houses all animated elements  */}
         <Animated.View style={{ transform: [{ translateY: titleTranslateY }], alignItems: 'center' }}>
           {/* Title */}
-          <Text className='text-6xl text-[#1e1e1e] top-60'>
+          <Text className='text-6xl text-[#1e1e1e] top-60 pb-2'>
             <Text className='font-opensans'>Train</Text>
             <Text className='font-opensans-bold'>In</Text>
           </Text>
-
-          
-
-        
         </Animated.View>
 
         <Animated.View style={{ opacity, transform: [{ translateY: subtitleTranslateY }], alignItems: 'center' }}>
-            {/* Subtitle */}
-            <Text className='font-opensans text-xl'>
-              Automated Attendance System
-            </Text>
-          </Animated.View>
+          {/* Subtitle */}
+          <Text className='font-opensans text-xl'>
+            Automated Attendance System
+          </Text>
+        </Animated.View>
 
-        
-
-        
-        
         <Animated.View style={{ opacity, alignItems: 'center', position: 'absolute', bottom: 0 }}>
           {/* Time In Button */}
           <Pressable
@@ -98,7 +90,6 @@ export default function Index() {
               Time Out
             </Text>
           </Pressable>
-          
         </Animated.View>
 
       </SafeAreaView>
