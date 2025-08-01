@@ -1,12 +1,14 @@
-import { Text, Image, Animated, Pressable } from 'react-native'
+import { View, Text, Image, Animated, Pressable, Easing } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useRouter } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 
 export default function ScanTimeIn() {
   const router = useRouter()
   const fadeAnim = useRef(new Animated.Value(0)).current
+  const [modalVisible, setModalVisible] = useState(false);
+  const fadeModal = useRef(new Animated.Value(0)).current
 
   useEffect(() => {
     Animated.loop(
@@ -16,6 +18,30 @@ export default function ScanTimeIn() {
       ])
     ).start()
   }, [fadeAnim])
+
+  useEffect(() => {
+    if (modalVisible) {
+      // Fade in
+      Animated.timing(fadeModal, {
+        toValue: 1,
+        duration: 300,
+        useNativeDriver: true,
+      }).start()
+
+      // Auto hide after 5 seconds
+      const timer = setTimeout(() => {
+        Animated.timing(fadeModal, {
+          toValue: 0,
+          duration: 300,
+          useNativeDriver: true,
+        }).start(() => {
+          setModalVisible(false) // only hide after fade-out
+        })
+      }, 5000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [modalVisible])
 
   const handleTap = async () => {
     try {
@@ -30,17 +56,21 @@ export default function ScanTimeIn() {
       const data = await response.json()
 
       if (response.ok) {
-        const now = new Date()
-        const formattedTime = now.toLocaleTimeString([], {
-          hour: 'numeric',
-          minute: '2-digit'
-        })
-        router.push({
-          pathname: '/(tabs)/time-in',
-          params: { time: formattedTime }
-        })
+        if (data.message === 'Already completed attendance for today') {
+          setModalVisible(true);
+        } else {
+          const now = new Date();
+          const formattedTime = now.toLocaleTimeString([], {
+            hour: 'numeric',
+            minute: '2-digit'
+          });
+          router.push({
+            pathname: '/(tabs)/time-in',
+            params: { time: formattedTime }
+          });
+        }
       } else {
-        alert('Error: ' + data.message)
+        alert('Error: ' + data.message);
       }
     } catch (error) {
       console.error(error)
@@ -51,18 +81,40 @@ export default function ScanTimeIn() {
 	return (
     /* Gradient Background */
 		<LinearGradient colors={[ '#d9d9d9', '#737373' ]} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={{ flex: 1 }}>
-			<SafeAreaView className='flex-1 justify-center items-center'>
+			
+      <SafeAreaView className='flex-1 justify-center items-center'>
+
         <Pressable onPress={handleTap}>
           <Image
             source={require('../../assets/images/nfc-wayfinding-mark.png')}
             className='w-[250px] h-[200px]'
-            resizeMode="contain"
+            resizeMode='contain'
           />
         </Pressable>
+      
         <Animated.Text style={{ opacity: fadeAnim, color: '#1e1e1e', fontSize: 30, marginTop: 30 }}>
           <Text className='font-opensans'>Tap card to time in</Text>
         </Animated.Text>
-			</SafeAreaView>
+
+        {modalVisible && (
+          <Animated.View style={{
+            opacity: fadeModal,
+            position: 'absolute',
+            top: '75%',
+            left: 0,
+            right: 0,
+            alignItems: 'center',
+            zIndex: 10,
+            }}
+          >
+            <Text className="font-opensans text-xl text-white">
+              You already timed in today.
+            </Text>
+          </Animated.View>
+        )}
+
+      </SafeAreaView>
+
 		</LinearGradient>
 	)
 }
