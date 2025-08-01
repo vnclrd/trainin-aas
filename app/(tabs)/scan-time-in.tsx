@@ -20,25 +20,16 @@ export default function ScanTimeIn() {
   }, [fadeAnim])
 
   useEffect(() => {
-    if (modalVisible) {
-      // Fade in
-      Animated.timing(fadeModal, {
-        toValue: 1,
-        duration: 300,
-        useNativeDriver: true,
-      }).start()
-
-      // Auto hide after 5 seconds
+    if (modalVisible) { Animated.timing(fadeModal, { toValue: 1, duration: 300, useNativeDriver: true, }).start()
       const timer = setTimeout(() => {
         Animated.timing(fadeModal, {
           toValue: 0,
           duration: 300,
           useNativeDriver: true,
         }).start(() => {
-          setModalVisible(false) // only hide after fade-out
+          setModalVisible(false)
         })
       }, 5000)
-
       return () => clearTimeout(timer)
     }
   }, [modalVisible])
