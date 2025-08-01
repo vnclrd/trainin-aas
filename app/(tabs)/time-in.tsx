@@ -53,7 +53,7 @@ export default function TimeInOnTime() {
     ]).start()
   }, [opacityFadeAnim])
 
-  const { time } = useLocalSearchParams<{  time: string }>()
+  const { time } = useLocalSearchParams<{ time: string }>()
 
   return (
 

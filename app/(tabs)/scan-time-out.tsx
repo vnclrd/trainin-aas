@@ -30,7 +30,15 @@ export default function ScanTimeOut() {
       const data = await response.json()
 
       if (response.ok) {
-        router.push('/(tabs)/time-out')
+        const now = new Date()
+        const formattedTime = now.toLocaleTimeString([], {
+          hour: 'numeric',
+          minute: '2-digit'
+        })
+        router.push({
+          pathname: '/(tabs)/time-out',
+          params: { time: formattedTime }
+        })
       } else {
         alert('Error: ' + data.message)
       }

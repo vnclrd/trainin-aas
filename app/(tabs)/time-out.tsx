@@ -3,6 +3,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { useRouter } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRef, useEffect } from 'react'
+import { useLocalSearchParams } from 'expo-router';
 
 export default function TimeInOnTime() {
   const router = useRouter()
@@ -52,6 +53,8 @@ export default function TimeInOnTime() {
     ]).start()
   }, [opacityFadeAnim])
 
+  const { time } = useLocalSearchParams<{ time: string }>()
+
   return (
 
     <LinearGradient
@@ -75,7 +78,7 @@ export default function TimeInOnTime() {
         </Animated.Text>
 
         <Animated.Text style={{ opacity: opacity3 , alignItems: 'center' }}>
-          <Text className='font-opensans-bolditalic text-[70px] color-[#fff]'>12:00 PM</Text>
+          <Text className='font-opensans-bolditalic text-[70px] color-[#fff]'>{time}</Text>
         </Animated.Text>
         
         <Animated.View style={{ opacity: opacityFadeAnim, alignItems: 'center', position: 'absolute', bottom: 80 }}>
