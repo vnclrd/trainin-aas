@@ -82,9 +82,9 @@ export default function Index() {
           {/* Time Out Button */}
           <Pressable
             onPress={() => router.push('/(tabs)/scan-time-out')}
-            className="border border-[#1e1e1e] rounded-[50px]
+            className='border border-[#1e1e1e] rounded-[50px]
             items-center justify-center
-            w-[175px] h-[60px] absolute bottom-[100px]"
+            w-[175px] h-[60px] absolute bottom-[100px]'
           >
             <Text className='font-opensans text-[#1e1e1e] text-2xl'>
               Time Out

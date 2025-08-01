@@ -102,7 +102,7 @@ export default function ScanTimeIn() {
             zIndex: 10,
             }}
           >
-            <Text className="font-opensans text-xl text-white">
+            <Text className='font-opensans text-xl text-white'>
               You've already timed in today.
             </Text>
           </Animated.View>

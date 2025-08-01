@@ -58,7 +58,7 @@ export default function TimeInOnTime() {
   return (
 
     <LinearGradient
-      colors={["#d9d9d9", "#737373"]}
+      colors={['#d9d9d9', '#737373']}
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 1 }}
       style={{ flex: 1 }}
