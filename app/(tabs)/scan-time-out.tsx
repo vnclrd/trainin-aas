@@ -103,7 +103,7 @@ export default function ScanTimeOut() {
             }}
           >
             <Text className="font-opensans text-xl text-white">
-              You already timed out today.
+              You've already timed out today.
             </Text>
           </Animated.View>
         )}

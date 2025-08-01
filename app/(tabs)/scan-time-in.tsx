@@ -103,7 +103,7 @@ export default function ScanTimeIn() {
             }}
           >
             <Text className="font-opensans text-xl text-white">
-              You already timed in today.
+              You've already timed in today.
             </Text>
           </Animated.View>
         )}
