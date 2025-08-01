@@ -30,7 +30,15 @@ export default function ScanTimeIn() {
       const data = await response.json()
 
       if (response.ok) {
-        router.push('/(tabs)/time-in')
+        const now = new Date()
+        const formattedTime = now.toLocaleTimeString([], {
+          hour: 'numeric',
+          minute: '2-digit'
+        })
+        router.push({
+          pathname: '/(tabs)/time-in',
+          params: { time: formattedTime }
+        })
       } else {
         alert('Error: ' + data.message)
       }
