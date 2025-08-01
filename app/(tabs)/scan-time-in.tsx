@@ -43,31 +43,39 @@ export default function ScanTimeIn() {
           cardId: '001',
           type: 'in'
         })
-      })
-      const data = await response.json()
+      });
+
+      const data = await response.json();
 
       if (response.ok) {
-        if (data.message === 'Already completed attendance for today') {
+        if (data.status === 'already_in') {
           setModalVisible(true);
-        } else {
+          return;
+        }
+
+        if (data.status === 'in_recorded') {
           const now = new Date();
           const formattedTime = now.toLocaleTimeString([], {
             hour: 'numeric',
             minute: '2-digit'
           });
+
           router.push({
             pathname: '/(tabs)/time-in',
             params: { time: formattedTime }
           });
+          return;
         }
+        alert(data.message);
+
       } else {
         alert('Error: ' + data.message);
       }
     } catch (error) {
-      console.error(error)
-      alert('Failed to record attendance')
+      console.error(error);
+      alert('Failed to record attendance');
     }
-  }
+  };
 
 	return (
     /* Gradient Background */
