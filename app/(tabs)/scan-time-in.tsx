@@ -1,4 +1,4 @@
-import { View, Text, Image, Animated, Pressable, Easing } from 'react-native'
+import { Text, Image, Animated, Pressable } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useRouter } from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -72,9 +72,7 @@ export default function ScanTimeIn() {
 	return (
     /* Gradient Background */
 		<LinearGradient colors={[ '#d9d9d9', '#737373' ]} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={{ flex: 1 }}>
-			
       <SafeAreaView className='flex-1 justify-center items-center'>
-
         <Pressable onPress={handleTap}>
           <Image
             source={require('../../assets/images/nfc-wayfinding-mark.png')}
@@ -82,11 +80,9 @@ export default function ScanTimeIn() {
             resizeMode='contain'
           />
         </Pressable>
-      
         <Animated.Text style={{ opacity: fadeAnim, color: '#1e1e1e', fontSize: 30, marginTop: 30 }}>
           <Text className='font-opensans'>Tap card to time in</Text>
         </Animated.Text>
-
         {modalVisible && (
           <Animated.View style={{
             opacity: fadeModal,
@@ -103,9 +99,7 @@ export default function ScanTimeIn() {
             </Text>
           </Animated.View>
         )}
-
       </SafeAreaView>
-
 		</LinearGradient>
 	)
 }
