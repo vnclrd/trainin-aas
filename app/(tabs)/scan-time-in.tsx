@@ -46,6 +46,7 @@ export default function ScanTimeIn() {
       });
 
       const data = await response.json();
+      console.log('Server response:', data);
 
       if (response.ok) {
         if (data.status === 'already_in') {
@@ -60,9 +61,13 @@ export default function ScanTimeIn() {
             minute: '2-digit'
           });
 
+          // Pass time and name to time-in.tsx
           router.push({
             pathname: '/(tabs)/time-in',
-            params: { time: formattedTime }
+            params: { 
+              name: data.name,
+              time: formattedTime
+            }
           });
           return;
         }
