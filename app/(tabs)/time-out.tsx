@@ -53,7 +53,7 @@ export default function TimeInOnTime() {
     ]).start()
   }, [opacityFadeAnim])
 
-  const { time } = useLocalSearchParams<{ time: string }>()
+  const params = useLocalSearchParams<{ name: string; time: string }>()
 
   return (
 
@@ -68,8 +68,12 @@ export default function TimeInOnTime() {
 
         <View className='flex-row'>
           <Animated.Text style={{ opacity: opacity1, alignItems: 'center' }}>
-            <Text className='font-opensans text-5xl' style={{ lineHeight: 70 }}>Goodbye,</Text>
-            <Text className='font-opensans-bold text-5xl' style={{ lineHeight: 70 }}> Miguel.</Text>
+            <Text className='font-opensans text-5xl' style={{ lineHeight: 70 }}>Goodbye, </Text>
+            <Text className='font-opensans-bold text-5xl' style={{ lineHeight: 70 }}>
+              {params.name
+                ? params.name.split(',')[1]?.trim().split(' ')[0]
+                : ''}.
+            </Text>
           </Animated.Text>
         </View>
         
@@ -78,7 +82,7 @@ export default function TimeInOnTime() {
         </Animated.Text>
 
         <Animated.Text style={{ opacity: opacity3 , alignItems: 'center' }}>
-          <Text className='font-opensans-bolditalic text-[70px] color-[#fff]'>{time}</Text>
+          <Text className='font-opensans-bolditalic text-[70px] color-[#fff]'>{params.time}</Text>
         </Animated.Text>
         
         <Animated.View style={{ opacity: opacityFadeAnim, alignItems: 'center', position: 'absolute', bottom: 80 }}>
