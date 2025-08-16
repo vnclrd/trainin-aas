@@ -46,7 +46,6 @@ export default function ScanTimeOut() {
       });
 
       const data = await response.json();
-      console.log('Server response:', data);
 
       if (response.ok) {
         if (data.status === 'already_out') {
@@ -61,13 +60,9 @@ export default function ScanTimeOut() {
             minute: '2-digit'
           });
 
-          // Pass time and name to time-in.tsx
           router.push({
             pathname: '/(tabs)/time-out',
-            params: { 
-              name: data.name,
-              time: formattedTime
-            }
+            params: { time: formattedTime }
           });
           return;
         }
