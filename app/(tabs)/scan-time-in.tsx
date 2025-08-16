@@ -36,7 +36,7 @@ export default function ScanTimeIn() {
 
   const handleTap = async () => {
     try {
-      const response = await fetch('http://192.168.0.101:3000/attendance', {
+      const response = await fetch('http://192.168.1.19:3000/attendance', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
